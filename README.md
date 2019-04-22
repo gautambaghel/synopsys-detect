@@ -16,9 +16,9 @@ workflow "Build, Test, and Publish" {
   resolves = ["Publish"]
 }
 
-# User defined maven compiler
+# User defined maven compiler action (Not currently in actions store)
 action "Build" {
-  uses = "gautambaghel/synopsys-detect/maven-cli@master"
+  uses = "gautambaghel/ducky-crm/maven-cli@master"
   args = "clean package"
 }
 
