@@ -83,7 +83,7 @@ Then just including the polaris files in detect should suffice.
 action "Polaris" {
   uses = "gautambaghel/synopsys-detect@master"
   secrets = ["BLACKDUCK_URL","BLACKDUCK_API_TOKEN","SWIP_ACCESS_TOKEN", "SWIP_SERVER_URL"]
-  args = "--detect.tools=POLARIS --detect.project.name=$GITHUB_REPOSITORY --polaris.url=$SWIP_SERVER_URL --polaris.access.token=SWIP_ACCESS_TOKEN"
+  args = "--detect.tools=POLARIS --detect.project.name=$GITHUB_REPOSITORY --polaris.url=$SWIP_SERVER_URL --polaris.access.token=$SWIP_ACCESS_TOKEN"
 }
 
 ```
