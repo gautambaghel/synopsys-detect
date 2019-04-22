@@ -4,7 +4,11 @@ This Action is for [detect](https://synopsys.atlassian.net/wiki/spaces/INTDOCS/p
 
 ## Usage
 
-An example workflow to build, detect, and Tag a project to scan the application is as follows:
+Including Synopsys detect in your workflow is fairly simple. Just select Synopsys-detect from [Github Marketplace](https://github.com/marketplace/actions/) and click on use the latest version to include it in your workspace. Detailed on using Actions is provided by Github [Learn more](https://help.github.com/en/articles/creating-a-workflow-with-github-actions) about creating a workflow and adding new actions to the workflow.
+
+## Example Usage
+
+An example workflow to build, detect, and Tag a maven project to scan the application is as follows:
 
 ```hcl
 workflow "Build, Test, and Publish" {
@@ -12,14 +16,16 @@ workflow "Build, Test, and Publish" {
   resolves = ["Publish"]
 }
 
+# User defined maven compiler
 action "Build" {
   uses = "gautambaghel/synopsys-detect/maven-cli@master"
   args = "clean package"
 }
 
+# The Detect block, override the arguments to configure options as required 
 action "Synopsys detect" {
   needs = "Build"
-  uses = "gautambaghel/synopsys-detect@master"
+  uses = "actions/synopsys-detect@master"
   secrets = ["BLACKDUCK_API_TOKEN", "BLACKDUCK_URL"]
   args = "--detect.tools=SIGNATURE_SCAN --detect.project.name=$GITHUB_REPOSITORY"
 }
