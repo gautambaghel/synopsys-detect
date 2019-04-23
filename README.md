@@ -76,7 +76,7 @@ install:
 serverUrl: https://polaris.synopsys.com
 ```
 
-Then just including the polaris files in detect should suffice.
+Then just including the Polaris™ URL and Access Token in detect should suffice.
 
 ```hcl
 
