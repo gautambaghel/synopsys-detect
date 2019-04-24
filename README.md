@@ -4,7 +4,7 @@ This Action is for [detect](https://synopsys.atlassian.net/wiki/spaces/INTDOCS/p
 
 ## Usage
 
-Including Synopsys detect in your workflow is fairly simple. Just select Synopsys-detect from [Github Marketplace](https://github.com/marketplace/actions/) and click on use the latest version to include it in your workspace. Detailed on using Actions is provided by Github [Learn more](https://help.github.com/en/articles/creating-a-workflow-with-github-actions) about creating a workflow and adding new actions to the workflow.
+Including Synopsys detect in your workflow is fairly simple. Just select Synopsys-detect from [Github Marketplace](https://github.com/marketplace/actions/) and click on use the latest version to include it in your workspace. Detailed description on using Actions is provided by Github [Learn more](https://help.github.com/en/articles/creating-a-workflow-with-github-actions) about creating a workflow and adding new actions to the workflow.
 
 ## Example Usage
 
