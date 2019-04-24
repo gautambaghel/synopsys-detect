@@ -1,6 +1,6 @@
 # GitHub Action for Synopsys Detect
 
-This Action is for [detect](https://synopsys.atlassian.net/wiki/spaces/INTDOCS/pages/62423113/Synopsys+Detect), it enables scanning a repository with `Synopsys Detect`, Synopsys Detect (formerly Hub Detect) consolidates the functionality of Black Duck™ and Coverity™ on Polaris™ tools into a single tool. Synopsys Detect also makes it easier to set up and scan code bases using a variety of languages and package managers.  
+This Action is for scanning vulnerabilities on your source code, it enables scanning a repository with [`Synopsys Detect`](https://synopsys.atlassian.net/wiki/spaces/INTDOCS/pages/62423113/Synopsys+Detect), Synopsys Detect (formerly Hub Detect) consolidates the functionality of Black Duck™ and Coverity™ on Polaris™ tools into a single tool. Synopsys Detect also makes it easier to set up and scan code bases using a variety of languages and package managers.  
 
 ## Usage
 
@@ -90,18 +90,28 @@ action "Polaris" {
 
 ## Build Capture
 
+For build capture to work Polaris requires build commands and the docker container should have appropriate build dependencies. This means that the Dockerfile must reside in local repository.
+
 In the polaris folder here is defined a Dockerfile, for a build capture you need to use the Base Image used during the build phase. For example for a Maven project base image would be something like "maven:3.6.1-jdk-8". (Refrain from using alpine based images as some commands may not work)
 
-Usage will be 
+The Dockerfile template is shown in the [polaris folder](/polaris) of this repo. 
+Follow these steps to run Polaris
+
+Step 1: Create a folder in your repo name "polaris"
+
+Step 2: Insert the edited Dockerfile from the template shown [here](/polaris) in the newly created polaris folder.
+
+Step 3: Use custom action block in the workflow like this
 
 ```hcl
 
 action "Polaris" {
-  uses = "actions/synopsys-detect/polaris@master"
+  uses = "./polaris"
   secrets = ["SWIP_ACCESS_TOKEN", "SWIP_SERVER_URL"]
 }
 
 ```
+Step 4: Run the workflow and check the logs.
 
 ## License
 
