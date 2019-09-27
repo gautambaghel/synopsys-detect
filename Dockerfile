@@ -15,8 +15,6 @@ RUN apt-get update && \
     apt-get install curl -y && \
     apt-get clean -y
 
-RUN export JAVA_HOME="/usr/local/openjdk-8/bin/java"
-
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
